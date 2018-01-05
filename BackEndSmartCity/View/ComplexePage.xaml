@@ -1,0 +1,180 @@
+﻿<Page
+    x:Class="BackEndSmartCity.ComplexePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BackEndSmartCity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator}, Path= Complexe}">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Style="{StaticResource ResourceKey=TextHeader}" Text="Ajouter un nouveau complexe"/>
+            <local:MenuHeader VerticalAlignment="Top"/>
+
+            <!--Accede les ressource sport-->
+            <StackPanel HorizontalAlignment="Center" Grid.Row="1">
+
+                <ComboBox Name="libellesport"
+                                  Width="500" 
+                                  Header="Libellé de sport" 
+                                  PlaceholderText="Choisir le sport..."
+                                  Padding="8"
+                                  Margin="0,20,0,0"
+                                  ItemsSource="{Binding Sports}"
+                                  SelectedItem="{Binding SportChoisi, Mode=TwoWay}"
+                                  />
+
+                <RelativePanel>
+                    <TextBox Name="coordX"
+                                    Width="240" 
+                                    Header="Coordonnée de carte abscisse" 
+                                    PlaceholderText="ex : 50.471243" 
+                                    Padding="8"
+                                    Margin="0,20,0,0"
+                                    Text="{Binding InsertionCoordonneeX, Mode=TwoWay}"
+                                    />
+
+                    <TextBox Name="coordY"
+                                     RelativePanel.AlignRightWithPanel="True"
+                                     Width="240" 
+                                     Header="Coordonnée de carte ordonnée" 
+                                     PlaceholderText="ex : 4.854771" 
+                                     Padding="8"
+                                     Margin="0,20,0,0"
+                                     Text="{Binding InsertionCoordonneeY, Mode=TwoWay}"
+                                     />
+                </RelativePanel>
+
+                <TextBox Name="libelleloc"
+                                 Width="500" 
+                                 Header="Libellé localité" 
+                                 PlaceholderText="ex : ITBF boxe, Wespin"
+                                 Padding="8"
+                                 Margin="0,20,0,0"
+                                 Text="{Binding InsertionLibelle, Mode=TwoWay}"
+                                 />
+                
+                <TextBox Name="libadresse"
+                                Width="500"
+                                Header="Adresse du localité"
+                                PlaceholderText="ex: 59, Rue de la Chêne..."
+                                Padding="8"
+                                Margin="0,20,0,0"
+                                Text="{Binding InsertionAdresse, Mode=TwoWay}"
+                                />
+                
+                <TextBox Name="sitewebloc" 
+                                Width="500"
+                                Header="Site Web du complexe sportif"
+                                PlaceholderText="https://exemple.com/..."
+                                Padding="8"
+                                Margin="0,20,0,0"
+                                Text="{Binding InsertionSiteweb, Mode=TwoWay}"
+                                />
+                
+                <Button Content="Ajouter la localité"
+                                Padding="8"
+                                Margin="0,20,0,0"
+                        Command="{Binding Ajouter}"
+                                />
+            </StackPanel>
+
+            <StackPanel BorderBrush="Brown" 
+                        BorderThickness="1" 
+                        Width="500" 
+                        Margin="20" 
+                        Grid.Row="2"/>
+
+            <StackPanel HorizontalAlignment="Center" Grid.Row="3">
+                <TextBlock Text="Selectionner un intitulé pour pouvoir soit la modifier, soit la supprimer :" 
+                                       Margin="0,0,0,5"/>
+                <ListView Width="500"
+                          Height="125"
+                          BorderThickness="2"
+                          BorderBrush="Brown"
+                          Background="LightSalmon"
+                          x:Name="ListeComplexes"
+                          ItemsSource="{Binding Complexes}"
+                          SelectedItem="{Binding ComplexeChoisie, Mode=TwoWay}" />
+
+                <Button Content="Supprimer la localité"
+                                    Padding="8"
+                                    Margin="0,20,0,0"
+                        IsEnabled="{Binding ElementName=ListeComplexes,
+                                            Path=SelectedItem,
+                                            Converter={StaticResource IsSelectedItem}}"
+                        Command="{Binding Supprimer}"
+                                    />
+
+                <StackPanel BorderBrush="Brown" BorderThickness="1" Width="500" Margin="0,20,0,0"/>
+
+                <RelativePanel>
+                    <TextBox Name="coordX_mod"
+                                    Width="240" 
+                                    Header="Coordonnée de carte abscisse" 
+                                    PlaceholderText="ex : 50.471243" 
+                                    Padding="8"
+                                    Margin="0,20,0,0"
+                                    Text="{Binding ModificationCoordonneeX, Mode=TwoWay}"
+                                    />
+
+                    <TextBox Name="coordY_mod"
+                                     RelativePanel.AlignRightWithPanel="True"
+                                     Width="240" 
+                                     Header="Coordonnée de carte ordonnée" 
+                                     PlaceholderText="ex : 4.854771" 
+                                     Padding="8"
+                                     Margin="0,20,0,0"
+                                     Text="{Binding ModificationCoordonneeY, Mode=TwoWay}"
+                                     />
+                </RelativePanel>
+                
+                <TextBox Name="libelleloc_mod"
+                                Width="500" 
+                                Header="Libellé localité" 
+                                PlaceholderText="ex : ITBF boxe, Wespin"
+                                Padding="8"
+                                Margin="0,20,0,0"
+                                Text="{Binding ModificationLibelle, Mode=TwoWay}"
+                                />
+
+                <TextBox Name="libadresse_mod"
+                                Width="500"
+                                Header="Adresse du localité"
+                                PlaceholderText="ex: 59, Rue de la Chêne..."
+                                Padding="8"
+                                Margin="0,20,0,0"
+                                Text="{Binding ModificationAdresse, Mode=TwoWay}"
+                                />
+
+                <TextBox Name="sitewebloc_mod" 
+                                Width="500"
+                                Header="Site Web du complexe sportif"
+                                PlaceholderText="https://exemple.com/..."
+                                Padding="8"
+                                Margin="0,20,0,0"
+                                Text="{Binding ModificationSiteweb, Mode=TwoWay}"
+                                />
+
+                <Button Content="Modifier la localité"
+                                    Padding="8"
+                                    Margin="0,20,0,0"
+                                    IsEnabled="{Binding ElementName=ListeComplexes,
+                                                        Path=SelectedItem,
+                                                        Converter={StaticResource IsSelectedItem}}"
+                                    Command="{Binding Modifier}"
+                                    />
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Page>
