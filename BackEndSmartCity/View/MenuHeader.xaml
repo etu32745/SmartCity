@@ -15,7 +15,6 @@
             <AppBarButton Label="Retour" Icon="Back" Command="{Binding Retour}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <AppBarButton Label="Accueil" Icon="Home" Command="{Binding GoBackHome}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <AppBarButton Content="Sport" Command="{Binding AddSport}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
-            <AppBarButton Content="Signalement" Command="{Binding ManageBadUser}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <AppBarButton Content="Complexe" Command="{Binding AddComplexe}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="Stats" Command="{Binding Stats}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>

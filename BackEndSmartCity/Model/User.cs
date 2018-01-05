@@ -8,12 +8,6 @@ namespace BackEndSmartCity.Model
 {
     class User
     {
-        public string Id { get; set; }
-        public string Username { get; set; }
-        public DateTime? DateNaissance { get; set; }
-        public Boolean Sexe { get; set; }
-        public string Photo { get; set; }
-        public string AboutMe { get; set; }
-        public string Profession { get; set; }
+        public IEnumerable<Disponibilité> Disponibilités { get; set; }
     }
 }

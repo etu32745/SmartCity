@@ -17,7 +17,6 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Content="Ajouter un sport" Command="{Binding AddSport}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <Button Content="Ajouter un complexe" Command="{Binding AddComplexe}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
-            <Button Content="Gérer les utilisateurs signalés" Command="{Binding ManageBadUser}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <Button Content="Voir les statistiques" Command="{Binding Stats}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
             <Button Content="Quitter" Command="{Binding Quitter}" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited"/>
         </StackPanel>

@@ -9,12 +9,12 @@ namespace BackEndSmartCity.Model
     public class Complexe
     {
         public int Id { get; set; }
-        public String Libellé { get; set; }
-        public String Adresse { get; set; }
-        public String SiteWeb { get; set; }
-        public String CoordonnéeX { get; set; }
-        public String CoordonnéeY { get; set; }
-        //public Sport NomSport { get; set; }
+        public string Libellé { get; set; }
+        public string Adresse { get; set; }
+        public string SiteWeb { get; set; }
+        public double CoordonnéeX { get; set; }
+        public double CoordonnéeY { get; set; }
+
         public IEnumerable<Disponibilité> Disponibilités { get; set; }
 
         public override string ToString()

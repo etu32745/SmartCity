@@ -24,7 +24,6 @@ namespace BackEndSmartCity.Service
         public ICommand GoBackHome => new RelayCommand(() => AccueilApp());
         public ICommand AddSport => new RelayCommand(() => NewSport());
         public ICommand AddComplexe => new RelayCommand(() => NewComplexe());
-        public ICommand ManageBadUser => new RelayCommand(() => UserManager());
         public ICommand Stats => new RelayCommand(() => GetStats());
         public ICommand Quitter => new RelayCommand(() => LeaveApp());
 
@@ -51,11 +50,6 @@ namespace BackEndSmartCity.Service
         {
             RetourPagePrec.GetList().Add("ComplexePage");
             _navigation.NavigateTo("ComplexePage");
-        }
-        private void UserManager()
-        {
-            RetourPagePrec.GetList().Add("UserManagerPage");
-            _navigation.NavigateTo("UserManagerPage");
         }
         private void GetStats()
         {

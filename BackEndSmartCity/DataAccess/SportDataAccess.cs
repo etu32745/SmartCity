@@ -15,7 +15,7 @@ namespace BackEndSmartCity.DataAccess
 
         public SportDataAccess()
         {
-            _requete = new FaiseurDeRequete(new Uri("http://sportappsmartcity.azurewebsites.net/api/Sports"));
+            _requete = new FaiseurDeRequete(new Uri("https://sportappsmartcity.azurewebsites.net/api/Sports"));
         }
 
 

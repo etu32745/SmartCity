@@ -17,7 +17,6 @@ namespace BackEndSmartCity.ViewModel
 
             SimpleIoc.Default.Register<MainPageViewModel>();
             SimpleIoc.Default.Register<HomePageViewModel>();
-            SimpleIoc.Default.Register<UserManagerPageViewModel>();
             SimpleIoc.Default.Register<SportPageViewModel>();
             SimpleIoc.Default.Register<ComplexePageViewModel>();
             SimpleIoc.Default.Register<StatsPageViewModel>();
@@ -27,7 +26,6 @@ namespace BackEndSmartCity.ViewModel
 
             navigationPages.Configure("MainPage", typeof(MainPage));
             navigationPages.Configure("HomePage", typeof(HomePage));
-            navigationPages.Configure("UserManagerPage", typeof(UserManagerPage));
             navigationPages.Configure("SportPage", typeof(SportPage));
             navigationPages.Configure("ComplexePage", typeof(ComplexePage));
             navigationPages.Configure("StatsPage", typeof(StatsPage));
@@ -45,13 +43,6 @@ namespace BackEndSmartCity.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<HomePageViewModel>();
-            }
-        }
-        public UserManagerPageViewModel UserManager
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<UserManagerPageViewModel>();
             }
         }
         public SportPageViewModel Sport

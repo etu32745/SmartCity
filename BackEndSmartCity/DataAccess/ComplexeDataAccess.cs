@@ -14,7 +14,7 @@ namespace BackEndSmartCity.DataAccess
 
         public ComplexeDataAccess()
         {
-            _requete = new FaiseurDeRequete(new Uri("http://sportappsmartcity.azurewebsites.net/api/ComplexesSportifs"));
+            _requete = new FaiseurDeRequete(new Uri("https://sportappsmartcity.azurewebsites.net/api/ComplexeSportifs"));
         }
         
         //TODO : adapter le code suivant la gestion de complexe
@@ -27,12 +27,12 @@ namespace BackEndSmartCity.DataAccess
                 complexe => new Complexe()
                     {
                         Id = complexe["complexeSportifId"].Value<int>(),
-                        Libellé = complexe["libellé"].Value<String>(),
-                        Adresse = complexe["adresse"].Value<String>(),
-                        SiteWeb = complexe["siteWeb"].Value<String>(),
-                        CoordonnéeX = complexe["coorX"].Value<String>(),
-                        CoordonnéeY = complexe["coorY"].Value<String>(),
-                        //NomSport = complexe["sportLib"].Value<Sport>(),
+                        Libellé = complexe["libellé"].Value<string>(),
+                        Adresse = complexe["adresse"].Value<string>(),
+                        SiteWeb = complexe["siteWeb"].Value<string>(),
+                        CoordonnéeX = complexe["coorX"].Value<double>(),
+                        CoordonnéeY = complexe["coorY"].Value<double>(),
+
                         Disponibilités = complexe["disponibilites"].Children().Select(disponibilité => new Disponibilité()
                         {
                             LibelléSport = disponibilité["libelléSport"].Value<string>(),
@@ -65,8 +65,8 @@ namespace BackEndSmartCity.DataAccess
             var complexe = await ComplexeAvecId(libAncienComplexe);
             var complexeMAJ = new JObject
             {
-                {"complexeId", complexe.Id },
-                {"libellé", nouveauComplexe.Libellé },
+                { "complexeId", complexe.Id },
+                { "libellé", nouveauComplexe.Libellé },
                 { "adresse", nouveauComplexe.Adresse },
                 { "siteWeb", nouveauComplexe.SiteWeb },
                 { "coorX", nouveauComplexe.CoordonnéeX },
