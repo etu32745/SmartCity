@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\DoubleConverter.cs" />
     <Compile Include="Converter\IsSelectedConverter.cs" />
     <Compile Include="DataAccess\ComplexeDataAccess.cs" />
     <Compile Include="DataAccess\FaiseurDeRequete.cs" />

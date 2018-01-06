@@ -5,9 +5,14 @@
     xmlns:local="using:BackEndSmartCity"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:BackEndSmartCity.Converter"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path= Complexe}">
 
+    <Page.Resources>
+        <converter:DoubleConverter x:Key="DoubleConverter"/>
+    </Page.Resources>
+    
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
@@ -40,7 +45,7 @@
                                     PlaceholderText="ex : 50.471243" 
                                     Padding="8"
                                     Margin="0,20,0,0"
-                                    Text="{Binding InsertionCoordonneeX, Mode=TwoWay}"
+                                    Text="{Binding InsertionCoordonneeX, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"
                                     />
 
                     <TextBox Name="coordY"
@@ -50,7 +55,7 @@
                                      PlaceholderText="ex : 4.854771" 
                                      Padding="8"
                                      Margin="0,20,0,0"
-                                     Text="{Binding InsertionCoordonneeY, Mode=TwoWay}"
+                                     Text="{Binding InsertionCoordonneeY, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"
                                      />
                 </RelativePanel>
 
@@ -124,7 +129,7 @@
                                     PlaceholderText="ex : 50.471243" 
                                     Padding="8"
                                     Margin="0,20,0,0"
-                                    Text="{Binding ModificationCoordonneeX, Mode=TwoWay}"
+                                    Text="{Binding ModificationCoordonneeX, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"
                                     />
 
                     <TextBox Name="coordY_mod"
@@ -134,7 +139,7 @@
                                      PlaceholderText="ex : 4.854771" 
                                      Padding="8"
                                      Margin="0,20,0,0"
-                                     Text="{Binding ModificationCoordonneeY, Mode=TwoWay}"
+                                     Text="{Binding ModificationCoordonneeY, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"
                                      />
                 </RelativePanel>
                 
