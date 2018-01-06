@@ -23,6 +23,7 @@ namespace BackEndSmartCity.ViewModel
         private ComplexeDataAccess _complexeDataAccess;
         private UserDataAccess _usersDisponibilitéDataAccess;
         private Complexe _complexeChoisi;
+        private String _erreur;
 
         public ICommand StatsByComplexe => new RelayCommand(() => Statistique());
         public ICommand AllStats => new RelayCommand(() => InitializeAsync());
@@ -63,6 +64,16 @@ namespace BackEndSmartCity.ViewModel
             {
                 _disponibilités = value;
                 RaisePropertyChanged("Disponibilités");
+            }
+        }
+
+        public String Erreur
+        {
+            get => _erreur;
+            set
+            {
+                _erreur = value;
+                RaisePropertyChanged("Erreur");
             }
         }
 
@@ -120,6 +131,7 @@ namespace BackEndSmartCity.ViewModel
                         PieCharts.First(value => value.ValueName.Equals(dispo.LibelléSport)).Pourcentage++;
                     }
                 }
+                //erreur : Aucune donnée disponible pour ce complexe.
             }
             Refresh();
         }

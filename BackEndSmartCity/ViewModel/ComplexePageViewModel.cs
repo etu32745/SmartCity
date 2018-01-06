@@ -209,8 +209,8 @@ namespace BackEndSmartCity.ViewModel
         private void AjouterComplexe()
         {
             Complexe valeurChamp = new Complexe();
-           // valeurChamp.CoordonnéeX = InsertionCoordonneeX;
-           // valeurChamp.CoordonnéeY = InsertionCoordonneeY;
+            valeurChamp.CoordonnéeX = Double.Parse(InsertionCoordonneeX);
+            valeurChamp.CoordonnéeY = Double.Parse(InsertionCoordonneeY);
             valeurChamp.Libellé = InsertionLibelle;
             valeurChamp.Adresse = InsertionAdresse;
             valeurChamp.SiteWeb = InsertionSiteweb;
@@ -221,8 +221,8 @@ namespace BackEndSmartCity.ViewModel
         private void ModifierComplexe()
         {
             Complexe valeurChamp = new Complexe();
-           // valeurChamp.CoordonnéeX = ModificationCoordonneeX;
-           // valeurChamp.CoordonnéeY = ModificationCoordonneeY;
+            valeurChamp.CoordonnéeX = Double.Parse(ModificationCoordonneeX);
+            valeurChamp.CoordonnéeY = Double.Parse(ModificationCoordonneeY);
             valeurChamp.Libellé = ModificationLibelle;
             valeurChamp.Adresse = ModificationAdresse;
             valeurChamp.SiteWeb = ModificationSiteweb;

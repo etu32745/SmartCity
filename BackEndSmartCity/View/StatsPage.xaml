@@ -27,6 +27,7 @@
                     <Button Content="Rechercher" Command="{Binding StatsByComplexe}"/>
                     <Button Content="Toutes salles confondues" Command="{Binding AllStats}"/>
                 </StackPanel>
+                <TextBlock Text="{Binding Erreur}"/>
             </StackPanel>
             <Charting:Chart x:Name="PieChart">
                 <Charting:Chart.Series>
