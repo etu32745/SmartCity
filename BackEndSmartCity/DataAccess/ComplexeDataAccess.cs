@@ -63,9 +63,12 @@ namespace BackEndSmartCity.DataAccess
             var complexe = await ComplexeAvecId(libAncienComplexe);
             var complexeMAJ = new JObject
             {
-                { "complexeId", complexe.Id },
-                { "libellé", nouveauComplexe.Libellé },
+                { "complexeSportifId", complexe.Id },
+                { "aParkingDispo", null },
                 { "adresse", nouveauComplexe.Adresse },
+                { "estOuvert", null },
+                { "horaireBusId", null },
+                { "libellé", nouveauComplexe.Libellé },
                 { "siteWeb", nouveauComplexe.SiteWeb },
                 { "coorX", nouveauComplexe.CoordonnéeX },
                 { "coorY", nouveauComplexe.CoordonnéeY }
