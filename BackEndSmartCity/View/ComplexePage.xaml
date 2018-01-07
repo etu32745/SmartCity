@@ -25,7 +25,6 @@
             <TextBlock Style="{StaticResource ResourceKey=TextHeader}" Text="Ajouter un nouveau complexe"/>
             <local:MenuHeader VerticalAlignment="Top"/>
 
-            <!--Accede les ressource sport-->
             <StackPanel HorizontalAlignment="Center" Grid.Row="1">
 
                 <ComboBox Name="libellesport"

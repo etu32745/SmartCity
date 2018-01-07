@@ -131,8 +131,15 @@ namespace BackEndSmartCity.ViewModel
                         PieCharts.First(value => value.ValueName.Equals(dispo.LibelléSport)).Pourcentage++;
                     }
                 }
-                //erreur : Aucune donnée disponible pour ce complexe.
             }
+
+            Erreur = null;
+
+            if (PieCharts.Count() == 0)
+            {
+                Erreur = "Aucune donnée disponible";
+            }
+
             Refresh();
         }
 

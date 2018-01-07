@@ -41,7 +41,6 @@ namespace BackEndSmartCity.ViewModel
         public ICommand Modifier => new RelayCommand(() => ModifierComplexe());
         public ICommand Supprimer => new RelayCommand(() => SupprimerComplexe());
 
-        //get libelle sport pour combobox
         public ObservableCollection<String> Sports
         {
             get => _sportsString;
@@ -61,7 +60,6 @@ namespace BackEndSmartCity.ViewModel
             }
         }
 
-        //get libelle complexe pour liste
         public ObservableCollection<String> Complexes
         {
             get => _complexeString;
@@ -83,7 +81,6 @@ namespace BackEndSmartCity.ViewModel
 
         }
 
-        //get champ des textbox
         public String InsertionCoordonneeX
         {
             get => _coordonnéeXInséré;
@@ -181,7 +178,6 @@ namespace BackEndSmartCity.ViewModel
             _complexeDataAccess = new ComplexeDataAccess();
             InitializeSportAsync();
             InitializeComplexeAsync();
-            //InitializeAsync();
         }
 
         private async Task InitializeSportAsync()
@@ -238,7 +234,6 @@ namespace BackEndSmartCity.ViewModel
             Refresh();
         }
 
-        //Gestion Erreur
         public String Erreur
         {
             get => _erreur;

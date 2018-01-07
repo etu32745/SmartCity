@@ -52,7 +52,7 @@ namespace BackEndSmartCity.ViewModel
         private async void VerifConnexion()
         {
             Progress = true;
-            if (!await Token.VerifUser(UserName,Password))//Verif si enregistré + role Admin
+            if (!await Token.VerifUser(UserName,Password))
             {
                 AccesRefusé = "Identifiants administrateur invalides";
 
