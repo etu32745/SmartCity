@@ -16,8 +16,6 @@ namespace BackEndSmartCity.DataAccess
         {
             _requete = new FaiseurDeRequete(new Uri("https://sportappsmartcity.azurewebsites.net/api/ComplexeSportifs"));
         }
-        
-        //TODO : adapter le code suivant la gestion de complexe
 
         //GET (recup)
         public async Task<IEnumerable<Complexe>> Get()

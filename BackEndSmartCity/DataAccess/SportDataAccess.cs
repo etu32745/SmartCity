@@ -59,7 +59,7 @@ namespace BackEndSmartCity.DataAccess
             _requete.Delete(sport.Id);
         }
 
-        //recupère un objet Sport via son libellé
+
         private async Task<Sport> SportAvecId(string sportRecherché)
         {
             var sports = await Get();

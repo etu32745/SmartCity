@@ -20,17 +20,14 @@ namespace BackEndSmartCity.ViewModel
     {
         private String _sportSélectionné,
             _complexeSelectionné, 
-            _coordonnéeXInséré,
-            _coordonnéeYInséré,
             _libelléInséré,
             _adresseInséré,
             _sitewebInséré,
-            _coordonnéeXModifié,
-            _coordonnéeYModifié,
             _libelléModifié, 
             _adresseModifié,
             _sitewebModifié,
             _erreur;
+        private Double _coordonnéeXInséré, _coordonnéeYInséré, _coordonnéeXModifié, _coordonnéeYModifié;
         private ObservableCollection<String> _complexeString, _sportsString;
         private IEnumerable<Complexe> _complexes;
         private IEnumerable<Sport> _sports;
@@ -81,7 +78,7 @@ namespace BackEndSmartCity.ViewModel
 
         }
 
-        public String InsertionCoordonneeX
+        public Double InsertionCoordonneeX
         {
             get => _coordonnéeXInséré;
             set
@@ -90,7 +87,7 @@ namespace BackEndSmartCity.ViewModel
                 RaisePropertyChanged("InsertionCooordonneeX");
             }
         }
-        public String InsertionCoordonneeY
+        public Double InsertionCoordonneeY
         {
             get => _coordonnéeYInséré;
             set
@@ -126,7 +123,7 @@ namespace BackEndSmartCity.ViewModel
                 RaisePropertyChanged("InsertionSiteweb");
             }
         }
-        public String ModificationCoordonneeX
+        public Double ModificationCoordonneeX
         {
             get => _coordonnéeXModifié;
             set
@@ -135,7 +132,7 @@ namespace BackEndSmartCity.ViewModel
                 RaisePropertyChanged("ModificationCoordonneeX");
             }
         }
-        public String ModificationCoordonneeY
+        public Double ModificationCoordonneeY
         {
             get => _coordonnéeYModifié;
             set
@@ -172,6 +169,7 @@ namespace BackEndSmartCity.ViewModel
             }
         }
 
+
         public ComplexePageViewModel(INavigationService _navigation):base(_navigation)
         {
             _sportDataAccess = new SportDataAccess();
@@ -205,20 +203,34 @@ namespace BackEndSmartCity.ViewModel
         private void AjouterComplexe()
         {
             Complexe valeurChamp = new Complexe();
-            valeurChamp.CoordonnéeX = Double.Parse(InsertionCoordonneeX);
-            valeurChamp.CoordonnéeY = Double.Parse(InsertionCoordonneeY);
+            valeurChamp.CoordonnéeX = InsertionCoordonneeX;
+            valeurChamp.CoordonnéeY = InsertionCoordonneeY;
             valeurChamp.Libellé = InsertionLibelle;
             valeurChamp.Adresse = InsertionAdresse;
             valeurChamp.SiteWeb = InsertionSiteweb;
 
-            EnvoieRequete(Action.AJOUTER, valeurChamp);
+            if (SportChoisi != null)
+            {
+                if(InsertionLibelle != null)
+                {
+                    EnvoieRequete(Action.AJOUTER, valeurChamp);
+                }
+                else
+                {
+                    Erreur = "Valeur entrée incorrecte\n(complexe vide?)";
+                }
+            }
+            else
+            {
+                Erreur = "Valeur entrée incorrecte\n(sport selectionné?)";
+            }
         }
 
         private void ModifierComplexe()
         {
             Complexe valeurChamp = new Complexe();
-            valeurChamp.CoordonnéeX = Double.Parse(ModificationCoordonneeX);
-            valeurChamp.CoordonnéeY = Double.Parse(ModificationCoordonneeY);
+            valeurChamp.CoordonnéeX = ModificationCoordonneeX;
+            valeurChamp.CoordonnéeY = ModificationCoordonneeY;
             valeurChamp.Libellé = ModificationLibelle;
             valeurChamp.Adresse = ModificationAdresse;
             valeurChamp.SiteWeb = ModificationSiteweb;
@@ -254,8 +266,8 @@ namespace BackEndSmartCity.ViewModel
                     case Action.AJOUTER:
                         _complexeDataAccess.Post(valeurChamp);
                         Complexes.Add(valeurChamp.Libellé);
-                        InsertionCoordonneeX = null;
-                        InsertionCoordonneeY = null;
+                        InsertionCoordonneeX = 0.0;
+                        InsertionCoordonneeY = 0.0;
                         InsertionLibelle = null;
                         InsertionAdresse = null;
                         InsertionSiteweb = null;
@@ -268,8 +280,8 @@ namespace BackEndSmartCity.ViewModel
                             i++;
                         }
                         Complexes[i] = valeurChamp.Libellé;
-                        ModificationCoordonneeX = null;
-                        ModificationCoordonneeY = null;
+                        ModificationCoordonneeX = 0.0;
+                        ModificationCoordonneeY = 0.0;
                         ModificationLibelle = null;
                         ModificationAdresse = null;
                         ModificationSiteweb = null;

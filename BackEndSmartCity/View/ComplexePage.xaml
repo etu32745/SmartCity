@@ -44,7 +44,8 @@
                                     PlaceholderText="ex : 50.471243" 
                                     Padding="8"
                                     Margin="0,20,0,0"
-                                    Text="{Binding InsertionCoordonneeX, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"
+                                    Text="{Binding InsertionCoordonneeX, Mode=TwoWay, Converter={StaticResource DoubleConverter},UpdateSourceTrigger=PropertyChanged}"
+                             
                                     />
 
                     <TextBox Name="coordY"
@@ -54,7 +55,7 @@
                                      PlaceholderText="ex : 4.854771" 
                                      Padding="8"
                                      Margin="0,20,0,0"
-                                     Text="{Binding InsertionCoordonneeY, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"
+                                     Text="{Binding InsertionCoordonneeY, Mode=TwoWay, Converter={StaticResource DoubleConverter},UpdateSourceTrigger=PropertyChanged}"
                                      />
                 </RelativePanel>
 
@@ -90,6 +91,8 @@
                                 Margin="0,20,0,0"
                         Command="{Binding Ajouter}"
                                 />
+                <TextBlock Text="{Binding Erreur}"/>
+                
             </StackPanel>
 
             <StackPanel BorderBrush="Brown" 
